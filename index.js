@@ -296,3 +296,18 @@ async function copyMarkdownSample(type) {
     console.error('Failed to copy: ', err);
   }
 }
+
+function toggleTheme() {
+  const body = document.body;
+  if (localStorage.getItem('theme') === 'dark') {
+    localStorage.theme = 'light'
+    document.getElementById("light").style.display = 'none';
+    document.getElementById("dark").style.display = 'block';
+    body.classList.remove('dark');
+  } else {
+    localStorage.theme = 'dark'
+    document.getElementById("dark").style.display = 'none';
+    document.getElementById("light").style.display = 'block';
+    body.classList.add('dark');
+  }
+}

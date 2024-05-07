@@ -2,11 +2,11 @@
 <html class="h-full">
 
 <!--<link rel="preconnect" href="https://fonts.bunny.net">-->
-<link rel="stylesheet" href="./index.css">
+<link rel="stylesheet" href="./index_full.css">
 <!-- <link href="https://fonts.bunny.net/css?family=inter:100,200,300,400,500,600,700,800,900" rel="stylesheet" /> -->
 
 <script src="./index.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
+<!--<script src="https://cdn.tailwindcss.com"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
     integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -30,20 +30,49 @@
     <meta property="og:image" content="https://badger.worldwidepixel.ca/img/ogimg.png" />
     <meta property="og:description" content="Create beautiful modern, and unique badges using Badger.">
 
+    <script>
+        console.log("%cBadger, by WorldWidePixel", "font-family: 'Inter', 'Helvetica', 'Segoe UI', sans-serif; font-size: 1.5rem;");
+        console.log("%cA badge designer for the web", "font-family: 'Inter', 'Helvetica', 'Segoe UI', sans-serif; font-size: 1rem;");
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            //document.documentElement.classList.add('dark');
+        }
+    </script>
+
 
 </head>
 
-<body class="h-full m-0">
+<body class="bg-white dark:bg-black dark:text-white h-full m-0">
 
-    <div class="p-4 gap-4 flex flex-col h-full">
+    <div id="page" class="p-4 gap-4 flex flex-col h-full">
 
-        <span class="flex flex-row gap-2 items-center text-xl select-none">
-            <img class="w-12 h-12" src="./img/badger.png">
-            Badger
-            <span class="font-[100] text-sm">
-                v1.0
+        <div class="flex flex-row gap-4 justify-between items-center">
+
+            <span class="flex flex-row gap-2 items-center text-xl select-none">
+                <img class="w-12 h-12" src="./img/badger.png">
+                Badger
+                <span class="font-[100] text-sm">
+                    v1.1
+                </span>
             </span>
-        </span>
+
+            <div class="flex-row gap-[1.5rem] items-center flex">
+
+                <i id="light" onclick="toggleTheme()" class="hidden dark:block icon cursor-pointer" data-lucide="sun"></i>
+                <i id="dark" onclick="toggleTheme()" class="block dark:hidden icon cursor-pointer" data-lucide="moon"></i>
+
+                <a href="https://worldwidepixel.ca">
+                    <img class="h-[30px] w-[30px] select-none" src="https://worldwidepixel.ca/img/icon512.png">
+                </a>
+                <a href="https://github.com/worldwidepixel/badger">
+                <i class="icon" data-lucide="github"></i>
+                </a>
+
+            </div>
+
+        </div>
 
         <hr>
 
@@ -61,13 +90,13 @@
 
                         <div class="flex flex-row gap-2 items-center">
                             <input
-                                class="colourInput p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                                class="colourInput p-1 h-10 w-14 block dark:bg-black bg-white border dark:border-gray-700 border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                                 type="color" id="gradientStart" name="gradientStart" value="#076137" />
                             <label for="gradientStart">Top</label>
                         </div>
                         <div class="flex flex-row gap-2 items-center">
                             <input
-                                class="colourInput p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                                class="colourInput p-1 h-10 w-14 block dark:bg-black bg-white border dark:border-gray-700 border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                                 type="color" id="gradientEnd" name="gradientEnd" value="#084e28" />
                             <label for="gradientEnd">Bottom</label>
                         </div>
@@ -85,7 +114,7 @@
 
                     <div class="flex flex-row gap-2 items-center">
                         <input
-                            class="p-1 h-10 w-fit block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                            class="p-1 h-10 w-fit block dark:bg-black bg-white border dark:border-gray-700 border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                             type="file" id="iconInput" name="iconInput" accept="image/png, image/jpeg" />
                     </div>
 
@@ -107,11 +136,11 @@
                         <label for="textOneInput">Line/Part One</label>
 
                         <input
-                            class="p-1 h-10 w-fit block bg-white border border-gray-200 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                            class="p-1 h-10 w-fit block dark:bg-black bg-white border dark:border-gray-700 border-gray-200 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                             type="text" id="textOneInput" name="textOneInput" placeholder="Type anything here" />
 
                         <input
-                            class="colourInput p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                            class="colourInput p-1 h-10 w-14 block dark:bg-black bg-white border dark:border-gray-700 border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                             type="color" id="textOneColour" name="textOneColour" value="#ffffff" />
 
                     </div>
@@ -121,11 +150,11 @@
                         <label for="textTwoInput">Line/Part Two</label>
 
                         <input
-                            class="p-1 h-10 w-fit block bg-white border border-gray-200 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                            class="p-1 h-10 w-fit block dark:bg-black bg-white border dark:border-gray-700 border-gray-200 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                             type="text" id="textTwoInput" name="textTwoInput" placeholder="Type anything here" />
 
                         <input
-                            class="colourInput p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                            class="colourInput p-1 h-10 w-14 block dark:bg-black bg-white border dark:border-gray-700 border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
                             type="color" id="textTwoColour" name="textTwoColour" value="#ff0000" />
 
                     </div>
@@ -133,13 +162,6 @@
                 </div>
 
                 <br>
-
-                <span class="flex flex-row gap-2 items-center"> <a class="underline font-medium"
-                        href="https://worldwidepixel.ca">Badger by WorldWidePixel</a><i class="icon"
-                        data-lucide="globe-2"></i> </span>
-                <span class="flex flex-row gap-2 items-center"> <a class="underline font-medium"
-                        href="https://github.com/worldwidepixel/badger">Source on Github</a><i class="icon"
-                        data-lucide="github"></i> </span>
 
             </div>
 

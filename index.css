@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .badge {
   /*filter: drop-shadow(0 0 5px #0000004F);*/
   border-radius: 8px;
