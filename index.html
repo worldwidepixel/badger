@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="h-full">
+
+<!--<link rel="preconnect" href="https://fonts.bunny.net">-->
+<link rel="stylesheet" href="./index.css">
+<!-- <link href="https://fonts.bunny.net/css?family=inter:100,200,300,400,500,600,700,800,900" rel="stylesheet" /> -->
+
+<script src="./index.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+    integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./js/jszip.js"></script>
+<script src="./js/FileSaver.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<head>
+
+    <title> Badger </title>
+    <link rel="icon" href="./img/badger.png" />
+
+</head>
+
+<body class="h-full m-0">
+
+    <div class="p-4 gap-4 flex flex-col h-full">
+
+        <span class="flex flex-row gap-2 items-center text-xl select-none">
+            <img class="w-12 h-12" src="./img/badger.png">
+            Badger
+            <span class="font-[100] text-sm">
+                v1.0
+            </span>
+        </span>
+
+        <hr>
+
+        <div class="flex flex-row gap-4 h-full">
+
+            <div class="flex flex-col gap-4 grow shrink-0">
+
+                <span class="select-none font-semibold text-3xl"> Edit </span>
+
+                <span class="font-medium text-xl"> Background Gradient </span>
+
+                <div class="flex flex-row gap-8 items-center">
+
+                    <div class="flex flex-col gap-4">
+
+                        <div class="flex flex-row gap-2 items-center">
+                            <input
+                                class="colourInput p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                                type="color" id="gradientStart" name="gradientStart" value="#076137" />
+                            <label for="gradientStart">Top</label>
+                        </div>
+                        <div class="flex flex-row gap-2 items-center">
+                            <input
+                                class="colourInput p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                                type="color" id="gradientEnd" name="gradientEnd" value="#084e28" />
+                            <label for="gradientEnd">Bottom</label>
+                        </div>
+
+                    </div>
+
+                    <div id="gradientPreview" class="gradientPreview"
+                        style="background: linear-gradient(180deg, #076137 0%, #084e28 100%)"></div>
+
+                </div>
+
+                <span class="font-medium text-xl"> Image </span>
+
+                <div class="flex flex-col gap-3">
+
+                    <div class="flex flex-row gap-2 items-center">
+                        <input
+                            class="p-1 h-10 w-fit block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                            type="file" id="iconInput" name="iconInput" accept="image/png, image/jpeg" />
+                    </div>
+
+                    <div class="flex flex-row gap-2 items-center">
+
+                        <label for="iconInput">Icon</label>
+                        <img class="w-12 h-12" id="iconPreview" src="./img/badger.png">
+
+                    </div>
+
+                </div>
+
+                <span class="font-medium text-xl"> Text </span>
+
+                <div class="flex flex-col gap-3">
+
+                    <div class="flex flex-row gap-2 items-center">
+
+                        <label for="textOneInput">Line/Part One</label>
+
+                        <input
+                            class="p-1 h-10 w-fit block bg-white border border-gray-200 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                            type="text" id="textOneInput" name="textOneInput" placeholder="Type anything here" />
+
+                        <input
+                            class="colourInput p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                            type="color" id="textOneColour" name="textOneColour" value="#ffffff" />
+
+                    </div>
+
+                    <div class="flex flex-row gap-2 items-center">
+
+                        <label for="textTwoInput">Line/Part Two</label>
+
+                        <input
+                            class="p-1 h-10 w-fit block bg-white border border-gray-200 rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                            type="text" id="textTwoInput" name="textTwoInput" placeholder="Type anything here" />
+
+                        <input
+                            class="colourInput p-1 h-10 w-14 block bg-white border border-gray-200 cursor-pointer rounded-lg disabled:opacity-50 disabled:pointer-events-none"
+                            type="color" id="textTwoColour" name="textTwoColour" value="#ff0000" />
+
+                    </div>
+
+                </div>
+
+                <br>
+
+                <span class="flex flex-row gap-2 items-center"> <a class="underline font-medium" href="https://worldwidepixel.ca">Badger by WorldWidePixel</a><i class="icon" data-lucide="globe-2"></i> </span>
+                <span class="flex flex-row gap-2 items-center"> <a class="underline font-medium" href="https://github.com/worldwidepixel/badger">Source on Github</a><i class="icon" data-lucide="github"></i> </span>
+
+            </div>
+
+            <!-- VIEW PREVIEW -->
+
+            <div class="h-full bg-[#e5e7eb] w-[1px]"></div>
+
+            <div class="select-none flex flex-col gap-4 grow-0 shrink">
+
+                <span class="font-semibold text-3xl"> View </span>
+
+                <div class="flex flex-row gap-2 w-fit">
+
+                    <div id="cozyMinimal" style="background: linear-gradient(180deg, #076137 0%, #084e28 100%)"
+                        class="badge">
+
+                        <div class="cozyMinimalBody">
+
+                            <img id="cozyMinimalImg" src="./img/badger.png" class="cozyImg"> </img>
+
+                        </div>
+
+                    </div>
+
+                    <div id="cozy" style="background: linear-gradient(180deg, #076137 0%, #084e28 100%)" class="badge">
+
+                        <div class="cozyBody">
+
+                            <img id="cozyImg" src="./img/badger.png" class="cozyImg"> </img>
+
+                            <div class="cozyTextContainer">
+
+                                <span id="cozyLineOne" class="lineOne"> Anything here </span>
+
+                                <span id="cozyLineTwo" class="lineTwo"> Something else </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- COMPACT -->
+
+                <div class="flex flex-row gap-2 w-fit">
+
+                    <div id="compactMinimal" style="background: linear-gradient(180deg, #076137 0%, #084e28 100%)"
+                        class="badge">
+
+                        <div class="compactMinimalBody">
+
+                            <img id="compactMinimalImg" src="./img/badger.png" class="compactImg"> </img>
+
+                        </div>
+
+                    </div>
+
+                    <div id="compact" style="background: linear-gradient(180deg, #076137 0%, #084e28 100%)"
+                        class="badge">
+
+                        <div class="compactBody">
+
+                            <img id="compactImg" src="./img/badger.png" class="compactImg"> </img>
+
+                            <div class="compactTextContainer">
+
+                                <span id="compactLineOne" class="lineOne"> Anything here </span>
+
+                                <span id="compactLineTwo" class="lineTwo"> Something else </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <span class="font-semibold text-3xl"> Export </span>
+
+                <span id="exportAllPng" class="flex gap-2 flex-row rounded-lg border p-2 w-fit cursor-pointer"> Export
+                    all in PNG (zipped) <i class="icon" data-lucide="image-down"></i></span>
+
+                <span id="exportAllSvg" class="flex gap-2 flex-row rounded-lg border p-2 w-fit cursor-pointer"> Export
+                    all in SVG (zipped) <i class="icon" data-lucide="pen-tool"></i></span>
+
+                <div class="flex flex-row gap-2 items-center">
+                    Cozy
+                    <div class="flex gap-2 flex-row border rounded-lg p-2 w-fit cursor-pointer">
+                        <span onclick="downloadPng(cozy)" class="w-fit"><i class="icon" data-lucide="image-down"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="downloadSvg(cozy)" class="w-fit"><i class="icon" data-lucide="pen-tool"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyDataUrl(cozy)" class="w-fit"><i class="icon" data-lucide="box"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyHtmlSample(cozy)" class="w-fit"><i class="icon" data-lucide="code-xml"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyMarkdownSample(cozy)" class="w-fit"><i class="icon" data-lucide="a-arrow-down"></i></span>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-2 items-center">
+                    Cozy Minimal
+                    <div class="flex gap-2 flex-row border rounded-lg p-2 w-fit cursor-pointer">
+                        <span onclick="downloadPng(cozyMinimal)" class="w-fit"><i class="icon" data-lucide="image-down"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="downloadSvg(cozyMinimal)" class="w-fit"><i class="icon" data-lucide="pen-tool"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyDataUrl(cozyMinimal)" class="w-fit"><i class="icon" data-lucide="box"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyHtmlSample(cozyMinimal)" class="w-fit"><i class="icon" data-lucide="code-xml"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyMarkdownSample(cozyMinimal)" class="w-fit"><i class="icon" data-lucide="a-arrow-down"></i></span>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-2 items-center">
+                    Compact
+                    <div class="flex gap-2 flex-row border rounded-lg p-2 w-fit cursor-pointer">
+                        <span onclick="downloadPng(compact)" class="w-fit"><i class="icon" data-lucide="image-down"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="downloadSvg(compact)" class="w-fit"><i class="icon" data-lucide="pen-tool"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyDataUrl(compact)" class="w-fit"><i class="icon" data-lucide="box"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyHtmlSample(compact)" class="w-fit"><i class="icon" data-lucide="code-xml"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyMarkdownSample(compact)" class="w-fit"><i class="icon" data-lucide="a-arrow-down"></i></span>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-2 items-center">
+                    Compact Minimal
+                    <div class="flex gap-2 flex-row border rounded-lg p-2 w-fit cursor-pointer">
+                        <span onclick="downloadPng(compactMinimal)" class="w-fit"><i class="icon" data-lucide="image-down"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="downloadSvg(compactMinimal)" class="w-fit"><i class="icon" data-lucide="pen-tool"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyDataUrl(compactMinimal)" class="w-fit"><i class="icon" data-lucide="box"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyHtmlSample(compactMinimal)" class="w-fit"><i class="icon" data-lucide="code-xml"></i></span>
+                        <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
+                        <span onclick="copyMarkdownSample(compactMinimal)" class="w-fit"><i class="icon" data-lucide="a-arrow-down"></i></span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</html>

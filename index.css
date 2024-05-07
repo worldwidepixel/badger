@@ -1,0 +1,171 @@
+.badge {
+  /*filter: drop-shadow(0 0 5px #0000004F);*/
+  border-radius: 8px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.cozyBody {
+  /*flex flex-row gap-[8px] bg-[blue] w-fit px-[12px] py-[8px]*/
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 2px solid #FFFFFF26;
+  border-radius: 8px;
+}
+
+.cozyMinimalBody {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 8px;
+  border: 2px solid #FFFFFF26;
+  border-radius: 8px;
+}
+
+.cozyImg {
+  /*w-[40px] h-[40px] bg-[red]*/
+  width: 40px;
+  height: 40px;
+  /*background-color: #999999;*/
+  filter: drop-shadow(0 0 5px #0000004F);
+  border-radius: 8px;
+}
+
+.cozyTextContainer {
+  /*flex flex-col gap-0*/
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  justify-content: center;
+}
+
+.lineOne {
+  /*text-[16px] font-medium*/
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  filter: drop-shadow(0 0 5px #0000004F);
+  color: white;
+}
+
+.lineTwo {
+  /*text-[17px] font-extrabold leading-[106%]*/
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 18px;
+  filter: drop-shadow(0 0 5px #0000004F);
+  color: red;
+}
+
+/* COMPACT */
+
+.compactBody {
+  /*flex flex-row gap-[8px] bg-[blue] w-fit px-[12px] py-[8px]*/
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  align-items: center;
+  border: 2px solid #FFFFFF26;
+  border-radius: 8px;
+}
+
+.compactMinimalBody {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding: 6px;
+  border: 2px solid #FFFFFF26;
+  border-radius: 8px;
+}
+
+.compactImg {
+  /*w-[40px] h-[40px] bg-[red]*/
+  width: 28px;
+  height: 28px;
+  /*background-color: #999999;*/
+  filter: drop-shadow(0 0 5px #0000004F);
+  border-radius: 6px;
+}
+
+.compactTextContainer {
+  /*flex flex-col gap-0*/
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* OTHER */ 
+
+.gradientPreview {
+  width: 40px;
+  height: calc(100% - 10px);
+  border-radius: 8px;
+}
+
+.colourInput {
+}
+
+.icon {
+  stroke-width: 1.5px;
+}
+
+@font-face {
+  font-family: 'Inter-nal';
+  src: url('./fonts/static/Inter-Black.ttf')  format('truetype');
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'Inter-nal';
+  src: url('./fonts/static/Inter-ExtraBold.ttf')  format('truetype');
+  font-weight: 800;
+}
+@font-face {
+  font-family: 'Inter-nal';
+  src: url('./fonts/static/Inter-Bold.ttf')  format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Inter-nal';
+  src: url('./fonts/static/Inter-SemiBold.ttf')  format('truetype');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Inter-nal';
+  src: url('./fonts/static/Inter-Medium.ttf')  format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Inter-nal';
+  src: url('./fonts/static/Inter-Regular.ttf')  format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Inter-nal';
+  src: url('./fonts/static/Inter-Light.ttf')  format('truetype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Inter-nal';
+  src: url('./fonts/static/Inter-ExtraLight.ttf')  format('truetype');
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Inter-nal';
+  src: url('./fonts/static/Inter-Thin.ttf')  format('truetype');
+  font-weight: 100;
+}
+
+body {
+  font-family: 'Inter-nal';
+}
