@@ -14,8 +14,8 @@ Just a quick warning: Badger's `data:` URIs are MASSIVE, as you can see by looki
 It's really simple to use Badger. You choose some colors, an image, type some text and choose the text's color, and a live preview of the finished badges appear in the right side of the page
 
 ### Credits
-Original badges Design by [Devin (intergrav)](https://intergrav.xyz/)
+Badger created by [WorldWidePixel](https://worldwidepixel.ca)
 
-Website by [WorldWidePixel](https://worldwidepixel.ca)
+Original Design Standard by [Devin (intergrav)](https://intergrav.xyz/)
 
 Readme by [Blurryface](https://blurryface.xyz)
