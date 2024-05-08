@@ -357,6 +357,25 @@ async function copyMarkdownSample(type) {
   }
 }
 
+async function copyImage(type) {
+  var data = domtoimage.toPng(type)
+    .then(function (dataUrl) {
+      return dataUrl;
+    })
+  const dataBlob = await (await fetch(await data)).blob();
+  try {
+    //await navigator.clipboard.writeText(await data);
+    await navigator.clipboard.write([
+      new ClipboardItem({
+          'image/png': dataBlob
+      })
+  ]);
+    console.log('Image copied to clipboard');
+  } catch (err) {
+    console.error('Failed to copy: ', err);
+  }
+}
+
 function toggleTheme() {
   const body = document.body;
   if (localStorage.getItem('theme') === 'dark') {
