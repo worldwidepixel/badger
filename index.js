@@ -164,6 +164,8 @@ async function updateBadges() {
   localStorage.lineOneColour = textOneColour;
   localStorage.lineTwoColour = textTwoColour;
 
+  loadQuery();
+
 }
 
 async function dataUrlToBytes(dataUrl) {
@@ -361,4 +363,55 @@ function toggleTheme() {
     document.getElementById("light").style.display = 'block';
     body.classList.add('dark');
   }
+}
+
+function loadQuery() {
+  const searchParams = new URLSearchParams(window.location.search);
+  if (searchParams.has("gradientStart")) {
+    startColour = `#${searchParams.getAll("gradientStart")[0]}`;
+    updateBadges();
+  }
+  if (searchParams.has("gradientEnd")) {
+    endColour = `#${searchParams.getAll("gradientEnd")[0]}`;
+    updateBadges();
+  }
+  if (searchParams.has("iconUrl")) {
+    icon = `${decodeURIComponent(searchParams.getAll("iconUrl")[0])}`;
+    console.log(icon);
+    updateBadges();
+  }
+  if (searchParams.has("lineOne")) {
+    textOne = `${searchParams.getAll("lineOne")[0]}`;
+    updateBadges();
+  }
+  if (searchParams.has("lineTwo")) {
+    textTwo = `${searchParams.getAll("lineTwo")[0]}`;
+    updateBadges();
+  }
+  if (searchParams.has("colourOne")) {
+    textOneColour = `#${searchParams.getAll("colourOne")[0]}`;
+    updateBadges();
+  }
+  if (searchParams.has("colourTwo")) {
+    textTwoColour = `#${searchParams.getAll("colourTwo")[0]}`;
+    updateBadges();
+  }
+}
+
+async function getIconB64() {
+  var iconDataUrl = domtoimage.toPng(iconPreview)
+  .then(function (dataUrl) {
+    return dataUrl;
+  })
+  .catch(function (error) {
+    console.error("Icon saving failed");
+  })
+  console.log(await iconDataUrl);
+  return iconDataUrl;
+}
+
+async function shareBadge() {
+  copyString = `https://badger.worldwidepixel.ca?gradientStart=${startColour.replace("#", "")}&gradientEnd=${endColour.replace("#", "")}&lineOne=${textOne}&lineTwo=${textTwo}&colourOne=${textOneColour.replace("#", "")}&colourTwo=${textTwoColour.replace("#", "")}&iconUrl=${encodeURIComponent(await getIconB64())}`;
+  navigator.clipboard.writeText(copyString);
+  console.log("Share link copied");
 }

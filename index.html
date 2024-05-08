@@ -54,11 +54,17 @@
                 <img class="w-12 h-12" src="./img/badger.png">
                 Badger
                 <span class="font-[100] text-sm">
-                    v1.2.1
+                    v1.3
                 </span>
             </span>
 
             <div class="flex-row gap-[1.5rem] items-center flex">
+
+                <span onclick="shareBadge()" class="flex flex-row gap-2 border p-2 rounded-xl select-none cursor-pointer">
+
+                    Share <i class="icon" data-lucide="share-2"></i>
+
+                </span>
 
                 <i id="light" onclick="toggleTheme()" class="hidden dark:block icon cursor-pointer" data-lucide="sun"></i>
                 <i id="dark" onclick="toggleTheme()" class="block dark:hidden icon cursor-pointer" data-lucide="moon"></i>
