@@ -48,13 +48,13 @@
 
     <div id="page" class="p-4 gap-4 flex flex-col h-full">
 
-        <div class="flex flex-row gap-4 justify-between items-center">
+        <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
 
             <span class="flex flex-row gap-2 items-center text-xl select-none">
                 <img class="w-12 h-12" src="./img/badger.png">
                 Badger
                 <span class="font-[100] text-sm">
-                    v1.3.1
+                    v1.3.2
                 </span>
             </span>
 
@@ -82,7 +82,7 @@
 
         <hr>
 
-        <div class="flex flex-row gap-4 h-full">
+        <div class="flex items-center lg:items-start flex-col lg:flex-row gap-4 h-full">
 
             <div class="flex flex-col gap-4 grow shrink-0">
 
@@ -173,9 +173,11 @@
 
             <!-- VIEW PREVIEW -->
 
-            <div class="h-full bg-[#e5e7eb] w-[1px]"></div>
+            <div class="hidden lg:block h-full bg-[#e5e7eb] w-[1px]"></div>
 
             <div class="select-none flex flex-col gap-4 grow-0 shrink">
+
+                <hr class="lg:hidden block">
 
                 <span class="font-semibold text-3xl"> View </span>
 
@@ -332,6 +334,8 @@
                                 data-lucide="a-arrow-down"></i></span>
                     </div>
                 </div>
+
+                <br class="block lg:hidden">
 
             </div>
 
