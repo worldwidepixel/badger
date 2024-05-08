@@ -118,7 +118,9 @@ function changeTextColour() {
   updateBadges();
 }
 
-function updateBadges() {
+async function updateBadges() {
+
+  const reader = new FileReader();
 
   cozyMinimal.style.background = `linear-gradient(180deg, ${startColour} 0%, ${endColour} 100%)`;
   cozy.style.background = `linear-gradient(180deg, ${startColour} 0%, ${endColour} 100%)`;
@@ -137,7 +139,14 @@ function updateBadges() {
   compactImg.src = icon;
   compactMinimalImg.src = icon;
 
-  localStorage.icon = encodeURI(icon);
+  var iconDataUrl = domtoimage.toPng(iconPreview)
+    .then(function (dataUrl) {
+      return dataUrl;
+    })
+    .catch(function (error) {
+      console.error("Icon saving failed");
+    })
+  localStorage.icon = await iconDataUrl;
 
   cozyLineOne.innerHTML = textOne;
   cozyLineTwo.innerHTML = textTwo;
