@@ -84,6 +84,13 @@ var textTwo = 'Something else';
 var icon = './img/badger.png'
 var textOneColour = '#ffffff';
 var textTwoColour = '#ff0000';
+var gradStartLoaded = false;
+var gradEndLoaded = false;
+var textOneLoaded = false;
+var textTwoLoaded = false;
+var textOneColourLoaded = false;
+var textTwoColourLoaded = false;
+var iconLoaded = false;
 
 function changeStart(event) {
   startColour = event.target.value;
@@ -365,36 +372,51 @@ function toggleTheme() {
   }
 }
 
+/* var gradStartLoaded = false;
+var gradEndLoaded = false;
+var textOneLoaded = false;
+var textTwoLoaded = false;
+var textOneColourLoaded = false;
+var textTwoColourLoaded = false;
+var iconLoaded = false; */
+
 function loadQuery() {
   const searchParams = new URLSearchParams(window.location.search);
-  if (searchParams.has("gradientStart")) {
+  if (searchParams.has("gradientStart") && gradStartLoaded === false) {
     startColour = `#${searchParams.getAll("gradientStart")[0]}`;
     updateBadges();
+    gradStartLoaded = true;
   }
-  if (searchParams.has("gradientEnd")) {
+  if (searchParams.has("gradientEnd") && gradEndLoaded === false) {
     endColour = `#${searchParams.getAll("gradientEnd")[0]}`;
     updateBadges();
+    gradEndLoaded = true;
   }
-  if (searchParams.has("iconUrl")) {
+  if (searchParams.has("iconUrl") && iconLoaded === false) {
     icon = `${decodeURIComponent(searchParams.getAll("iconUrl")[0])}`;
-    console.log(icon);
+    //console.log(icon);
     updateBadges();
+    iconLoaded = true;
   }
-  if (searchParams.has("lineOne")) {
+  if (searchParams.has("lineOne") && textOneLoaded === false) {
     textOne = `${searchParams.getAll("lineOne")[0]}`;
     updateBadges();
+    textOneLoaded = true;
   }
-  if (searchParams.has("lineTwo")) {
+  if (searchParams.has("lineTwo") && textTwoLoaded === false) {
     textTwo = `${searchParams.getAll("lineTwo")[0]}`;
     updateBadges();
+    textTwoLoaded = true;
   }
-  if (searchParams.has("colourOne")) {
+  if (searchParams.has("colourOne") && textOneColourLoaded === false) {
     textOneColour = `#${searchParams.getAll("colourOne")[0]}`;
     updateBadges();
+    textOneColourLoaded = true;
   }
-  if (searchParams.has("colourTwo")) {
+  if (searchParams.has("colourTwo") && textTwoColourLoaded === false) {
     textTwoColour = `#${searchParams.getAll("colourTwo")[0]}`;
     updateBadges();
+    textTwoColourLoaded = true;
   }
 }
 
@@ -415,3 +437,4 @@ async function shareBadge() {
   navigator.clipboard.writeText(copyString);
   console.log("Share link copied");
 }
+
