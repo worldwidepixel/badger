@@ -45,6 +45,36 @@ window.addEventListener("load", (event) => {
   iconPicker.onchange = () => {
     changeIcon(iconPicker);
   }
+  
+  if (localStorage.getItem('gradientStart')) {
+    startColour = localStorage.getItem('gradientStart');
+    gradientStart.value = localStorage.getItem('gradientStart');
+  }
+  if (localStorage.getItem('gradientEnd')) {
+    endColour = localStorage.getItem('gradientEnd');
+    gradientEnd.value = localStorage.getItem('gradientEnd');
+  }
+  if (localStorage.getItem('icon')) {
+    icon = localStorage.getItem('icon');
+    iconPreview.src = localStorage.getItem('icon');
+  }
+  if (localStorage.getItem('lineOne')) {
+    textOne = localStorage.getItem('lineOne');
+  }
+  if (localStorage.getItem('lineTwo')) {
+    textTwo = localStorage.getItem('lineTwo');
+  }
+  if (localStorage.getItem('lineOneColour')) {
+    textOneColour = localStorage.getItem('lineOneColour');
+    textOneColourInput.value = localStorage.getItem('lineOneColour');
+  }
+  if (localStorage.getItem('lineTwoColour')) {
+    textTwoColour = localStorage.getItem('lineTwoColour');
+    textTwoColourInput.value = localStorage.getItem('lineTwoColour');
+  }
+
+  updateBadges();
+
 });
 
 var startColour = '#076137';
@@ -95,6 +125,10 @@ function updateBadges() {
   compactMinimal.style.background = `linear-gradient(180deg, ${startColour} 0%, ${endColour} 100%)`;
   compact.style.background = `linear-gradient(180deg, ${startColour} 0%, ${endColour} 100%)`;
   gradientPreview.style.background = `linear-gradient(180deg, ${startColour} 0%, ${endColour} 100%)`;
+
+  localStorage.gradientStart = startColour;
+  localStorage.gradientEnd = endColour;
+
   //iconPreview.src = iconObjectUrl;
   iconPreview.src = icon;
 
@@ -103,15 +137,23 @@ function updateBadges() {
   compactImg.src = icon;
   compactMinimalImg.src = icon;
 
+  localStorage.icon = encodeURI(icon);
+
   cozyLineOne.innerHTML = textOne;
   cozyLineTwo.innerHTML = textTwo;
   compactLineOne.innerHTML = textOne;
   compactLineTwo.innerHTML = textTwo;
 
+  localStorage.lineOne = textOne;
+  localStorage.lineTwo = textTwo;
+
   cozyLineOne.style.color = textOneColour;
   cozyLineTwo.style.color = textTwoColour;
   compactLineOne.style.color = textOneColour;
   compactLineTwo.style.color = textTwoColour;
+
+  localStorage.lineOneColour = textOneColour;
+  localStorage.lineTwoColour = textTwoColour;
 
 }
 
