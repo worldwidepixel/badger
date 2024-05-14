@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="h-full">
+
+<!--<link rel="preconnect" href="https://fonts.bunny.net">-->
+<link rel="stylesheet" href="./index_full.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<head>
+
+    <title> Changelog - Badger </title>
+    <link rel="icon" href="./img/badger.png" />
+    <meta name="title" content="Badger: A badge creator for the web">
+    <meta name="description" content="Create beautiful modern, and unique badges using Badger.">
+    <meta name="keywords" content="badge, design, edit">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="author" content="WorldWidePixel">
+    <meta property="og:title" content="Badger: A badge creator for the web" />
+    <meta property="og:url" content="https://badger.worldwidepixel.ca/" />
+    <meta property="og:image" content="https://badger.worldwidepixel.ca/img/ogimg.png" />
+    <meta property="og:description" content="Create beautiful modern, and unique badges using Badger.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        console.log("%cBadger, by WorldWidePixel", "font-family: 'Inter', 'Helvetica', 'Segoe UI', sans-serif; font-size: 1.5rem;");
+        console.log("%cA badge designer for the web", "font-family: 'Inter', 'Helvetica', 'Segoe UI', sans-serif; font-size: 1rem;");
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            //document.documentElement.classList.add('dark');
+        }
+    </script>
+
+
+</head>
+
+<body class="bg-white dark:bg-black dark:text-white h-full m-0">
+
+  <div id="page" class="p-4 gap-4 flex flex-col h-full">
+
+    <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
+
+        <a href="/" class="flex flex-row gap-2 items-center text-xl select-none">
+            <img class="w-12 h-12" src="./img/badger.png">
+            Badger
+            <span class="font-[100] text-sm">
+                v1.3.7
+            </span>
+        </a>
+
+        <div class="flex-row gap-[1.5rem] items-center flex">
+
+            <i id="light" onclick="toggleTheme()" class="hidden dark:block icon cursor-pointer"
+                data-lucide="sun"></i>
+            <i id="dark" onclick="toggleTheme()" class="block dark:hidden icon cursor-pointer"
+                data-lucide="moon"></i>
+
+            <a href="https://worldwidepixel.ca">
+                <img class="h-[30px] w-[30px] select-none" src="https://worldwidepixel.ca/img/icon512.png">
+            </a>
+            <a href="https://github.com/worldwidepixel/badger">
+                <i class="icon" data-lucide="github"></i>
+            </a>
+            <a href="./changelog.html">
+                <i class="icon" data-lucide="scroll"></i>
+            </a>
+
+        </div>
+
+      </div>
+
+      <hr>
+
+      <span class="text-3xl font-bold">Changelog</span>
+
+      <span class="text-xl font-bold">&bull; Badger 1.3.7</span>
+
+      - Added changelog
+
+      <span class="text-xl font-bold">&bull; Badger 1.3.6</span>
+
+      - Added tooltips on iconified buttons
+
+      <span class="text-xl font-bold">&bull; Badger 1.3.5</span>
+
+      - Improved mobile interface
+
+      <span class="text-xl font-bold">&bull; Badger 1.3.4</span>
+
+      - Directly copy images to clipboard for easy sharing without horridly long URLs
+
+      <span class="text-xl font-bold">&bull; Badger 1.3.3</span>
+
+      - Mobile interface fixes
+
+      <span class="text-xl font-bold">&bull; Badger 1.3.2</span>
+
+      - Added support for mobile devices
+
+      <span class="text-xl font-bold">&bull; Badger 1.3.1</span>
+
+      - Fix severe performance issue when using shared badges
+    
+      <span class="text-xl font-bold">&bull; Badger 1.3</span>
+
+      - Added sharing of badges
+
+      <span class="text-xl font-bold">&bull; Badger 1.2.1</span>
+
+      - Fix issue with icons
+
+      <span class="text-xl font-bold">&bull; Badger 1.2</span>
+
+      - Added reload-persistent storage
+
+      <span class="text-xl font-bold">&bull; Badger 1.1</span>
+
+      - Added dark/light mode
+      - Various UI improvements and fixes
+
+      <span class="text-xl font-bold">&bull; Badger 1.0</span>
+
+      - Initial release
+
+    </div>
+
+    <script>
+      lucide.createIcons();
+    </script>
+
+</body>
