@@ -46,6 +46,10 @@
 
 </head>
 
+<div id="tooltips">
+
+</div>
+
 <body class="bg-white dark:bg-black dark:text-white h-full m-0">
 
     <div id="page" class="p-4 gap-4 flex flex-col h-full">
@@ -56,7 +60,7 @@
                 <img class="w-12 h-12" src="./img/badger.png">
                 Badger
                 <span class="font-[100] text-sm">
-                    v1.3.5
+                    v1.3.6
                 </span>
             </span>
 
@@ -276,84 +280,84 @@
                 <div class="flex flex-row gap-2 items-center">
                     Cozy
                     <div class="flex gap-2 flex-row border rounded-lg p-2 w-fit cursor-pointer">
-                        <span onclick="downloadPng(cozy)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Download PNG')" onclick="downloadPng(cozy)" class="w-fit"><i class="icon"
                                 data-lucide="image-down"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="downloadSvg(cozy)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Download SVG')" onclick="downloadSvg(cozy)" class="w-fit"><i class="icon"
                                 data-lucide="pen-tool"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyDataUrl(cozy)" class="w-fit"><i class="icon" data-lucide="box"></i></span>
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy data URL')" onclick="copyDataUrl(cozy)" class="w-fit"><i class="icon" data-lucide="box"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyHtmlSample(cozy)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy HTML sample')" onclick="copyHtmlSample(cozy)" class="w-fit"><i class="icon"
                                 data-lucide="code-xml"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyMarkdownSample(cozy)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy MD sample')" onclick="copyMarkdownSample(cozy)" class="w-fit"><i class="icon"
                                 data-lucide="a-arrow-down"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyImage(cozy)" class="w-fit"><i class="icon" data-lucide="copy"></i></span>
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy image')" onclick="copyImage(cozy)" class="w-fit"><i class="icon" data-lucide="copy"></i></span>
                     </div>
                 </div>
                 <div class="flex flex-row gap-2 items-center">
                     Cozy Minimal
                     <div class="flex gap-2 flex-row border rounded-lg p-2 w-fit cursor-pointer">
-                        <span onclick="downloadPng(cozyMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Download PNG')" onclick="downloadPng(cozyMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="image-down"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="downloadSvg(cozyMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Download SVG')" onclick="downloadSvg(cozyMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="pen-tool"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyDataUrl(cozyMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy data URL')" onclick="copyDataUrl(cozyMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="box"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyHtmlSample(cozyMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy HTML sample')" onclick="copyHtmlSample(cozyMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="code-xml"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyMarkdownSample(cozyMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy MD sample')" onclick="copyMarkdownSample(cozyMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="a-arrow-down"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyImage(cozyMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy image')" onclick="copyImage(cozyMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="copy"></i></span>
                     </div>
                 </div>
                 <div class="flex flex-row gap-2 items-center">
                     Compact
                     <div class="flex gap-2 flex-row border rounded-lg p-2 w-fit cursor-pointer">
-                        <span onclick="downloadPng(compact)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Download PNG')" onclick="downloadPng(compact)" class="w-fit"><i class="icon"
                                 data-lucide="image-down"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="downloadSvg(compact)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Download SVG')" onclick="downloadSvg(compact)" class="w-fit"><i class="icon"
                                 data-lucide="pen-tool"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyDataUrl(compact)" class="w-fit"><i class="icon" data-lucide="box"></i></span>
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy data URL')" onclick="copyDataUrl(compact)" class="w-fit"><i class="icon" data-lucide="box"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyHtmlSample(compact)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy HTML sample')" onclick="copyHtmlSample(compact)" class="w-fit"><i class="icon"
                                 data-lucide="code-xml"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyMarkdownSample(compact)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy MD sample')" onclick="copyMarkdownSample(compact)" class="w-fit"><i class="icon"
                                 data-lucide="a-arrow-down"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyImage(compact)" class="w-fit"><i class="icon" data-lucide="copy"></i></span>
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy image')" onclick="copyImage(compact)" class="w-fit"><i class="icon" data-lucide="copy"></i></span>
                     </div>
                 </div>
                 <div class="flex flex-row gap-2 items-center">
                     Compact Minimal
                     <div class="flex gap-2 flex-row border rounded-lg p-2 w-fit cursor-pointer">
-                        <span onclick="downloadPng(compactMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Download PNG')" onclick="downloadPng(compactMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="image-down"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="downloadSvg(compactMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Download SVG')" onclick="downloadSvg(compactMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="pen-tool"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyDataUrl(compactMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy data URL')" onclick="copyDataUrl(compactMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="box"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyHtmlSample(compactMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy HTML sample')" onclick="copyHtmlSample(compactMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="code-xml"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyMarkdownSample(compactMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy MD sample')" onclick="copyMarkdownSample(compactMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="a-arrow-down"></i></span>
                         <div class="h-full bg-[#e5e7eb] w-[1px]">&nbsp;</div>
-                        <span onclick="copyImage(compactMinimal)" class="w-fit"><i class="icon"
+                        <span onmouseleave="removeTooltip()" onmouseover="tooltip('Copy image')" onclick="copyImage(compactMinimal)" class="w-fit"><i class="icon"
                                 data-lucide="copy"></i></span>
                     </div>
                 </div>

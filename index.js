@@ -1,4 +1,7 @@
 window.addEventListener("load", (event) => {
+
+  tooltipIterator = 0;
+
   exportAllPng = document.getElementById("exportAllPng");
   exportAllSvg = document.getElementById("exportAllSvg");
 
@@ -45,7 +48,7 @@ window.addEventListener("load", (event) => {
   iconPicker.onchange = () => {
     changeIcon(iconPicker);
   }
-  
+
   if (localStorage.getItem('gradientStart')) {
     startColour = localStorage.getItem('gradientStart');
     gradientStart.value = localStorage.getItem('gradientStart');
@@ -367,9 +370,9 @@ async function copyImage(type) {
     //await navigator.clipboard.writeText(await data);
     await navigator.clipboard.write([
       new ClipboardItem({
-          'image/png': dataBlob
+        'image/png': dataBlob
       })
-  ]);
+    ]);
     console.log('Image copied to clipboard');
   } catch (err) {
     console.error('Failed to copy: ', err);
@@ -441,12 +444,12 @@ function loadQuery() {
 
 async function getIconB64() {
   var iconDataUrl = domtoimage.toPng(iconPreview)
-  .then(function (dataUrl) {
-    return dataUrl;
-  })
-  .catch(function (error) {
-    console.error("Icon saving failed");
-  })
+    .then(function (dataUrl) {
+      return dataUrl;
+    })
+    .catch(function (error) {
+      console.error("Icon saving failed");
+    })
   console.log(await iconDataUrl);
   return iconDataUrl;
 }
@@ -457,3 +460,55 @@ async function shareBadge() {
   console.log("Share link copied");
 }
 
+function tooltip(type) {
+
+  createToolTip(type);
+
+}
+
+function createToolTip(type) {
+  if (tooltipIterator === 0) {
+    tooltipElement = document.createElement("span");
+    tooltipElement.innerHTML = type;
+    tooltipElement.style.display = 'none';
+    tooltipElement.style.userSelect = 'none';
+    tooltipElement.style.backgroundColor = 'black';
+    tooltipElement.style.color = 'white';
+    tooltipElement.style.padding = '8px';
+    tooltipElement.style.paddingTop = '4px';
+    tooltipElement.style.paddingBottom = '4px';
+    tooltipElement.style.borderRadius = '0.5rem';
+    tooltipElement.style.border = 'solid white 1px'
+    tooltipElement.classList.add('tooltip');
+    document.getElementById('tooltips').appendChild(tooltipElement);
+    tooltipIterator = 1;
+    document.addEventListener('mousemove', positionToolTip);
+  }
+}
+
+function positionToolTip(e) {
+  var x = e.pageX - 12.5;
+  var y = e.pageY - 45;
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+
+  if (e.pageX > w - 175) {
+    x = e.pageX - 75;
+  }
+  if (e.pageX > w - 150) {
+    x = e.pageX - 100;
+  }
+
+  //console.log(e.pageX, e.pageY, "|", w, h);
+  tooltipElement.style.position = "absolute";
+  tooltipElement.style.left = x+'px';
+  tooltipElement.style.top = y+"px";
+
+  tooltipElement.style.display = 'block';
+}
+
+function removeTooltip() {
+  document.getElementById('tooltips').removeChild(tooltipElement);
+  document.removeEventListener('mousemove', positionToolTip);
+  tooltipIterator = 0;
+}

@@ -173,3 +173,12 @@
 body {
   font-family: 'Inter-nal';
 }
+
+.tooltip {
+  background-color: rgba(0, 0, 0, 255);
+  color: white;
+}
+
+#tooltips {
+  position: absolute;
+}
