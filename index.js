@@ -118,7 +118,7 @@ function changeIcon(iconPicker) {
 function changeText() {
   textOne = textOneInput.value;
   textTwo = textTwoInput.value;
-  console.log(textOne, textTwo);
+  //console.log(textOne, textTwo);
   updateBadges();
 }
 
@@ -131,6 +131,10 @@ function changeTextColour() {
 async function updateBadges() {
 
   const reader = new FileReader();
+
+  textOne = DOMPurify.sanitize(textOne);
+  textTwo = DOMPurify.sanitize(textTwo);
+  console.log(textOne, textTwo);
 
   cozyMinimal.style.background = `linear-gradient(180deg, ${startColour} 0%, ${endColour} 100%)`;
   cozy.style.background = `linear-gradient(180deg, ${startColour} 0%, ${endColour} 100%)`;
